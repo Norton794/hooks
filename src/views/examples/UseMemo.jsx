@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import PageTitle from "../../components/layout/PageTitle";
 
 function sum(a, b) {
@@ -12,11 +12,13 @@ const UseMemo = (props) => {
   const [n2, setN2] = useState(0);
   const [n3, setN3] = useState(0);
 
-  const [result, setResult] = useState(0);
+  const result = useMemo(() => sum(n1, n2), [n1, n2]);
 
-  useEffect(() => {
-    setResult(sum(n1, n2));
-  }, [n1, n2]);
+  // const [result, setResult] = useState(0);
+
+  // useEffect(() => {
+  //   setResult(sum(n1, n2));
+  // }, [n1, n2]);
 
   return (
     <div className="UseMemo">

@@ -77,6 +77,7 @@ const UseEffect = (props) => {
         <input
           type="number"
           className="input"
+          min="0"
           value={number2}
           onChange={(e) => setNumber2(e.target.value)}
         />

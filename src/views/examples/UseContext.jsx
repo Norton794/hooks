@@ -4,7 +4,14 @@ import PageTitle from "../../components/layout/PageTitle";
 import DataContext from "../../data/DataContext";
 
 const UseContext = (props) => {
-  const context = useContext(DataContext);
+  const {state, setState} = useContext(DataContext);
+
+  function setNumber(delta) {
+    setState({
+      ...state,
+      number: state.number + delta,
+    });
+  }
 
   return (
     <div className="UseContext">
@@ -14,8 +21,13 @@ const UseContext = (props) => {
       />
 
       <div className="center">
-        <span className="text">{context.text}</span>
-        <span className="text">{context.number}</span>
+        <span className="text">{state.text}</span>
+        <span className="text">{state.number}</span>
+      </div>
+
+      <div className="center">
+          <button className="btn" onClick={()=>setNumber(-1)}>-1</button>
+          <button className="btn" onClick={()=>setNumber(1)}>+1</button>
       </div>
     </div>
   );

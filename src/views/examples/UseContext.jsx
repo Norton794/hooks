@@ -1,15 +1,24 @@
-import React from 'react'
-import PageTitle from '../../components/layout/PageTitle'
+import React, { useContext } from "react";
+import PageTitle from "../../components/layout/PageTitle";
+
+import DataContext from "../../data/DataContext";
 
 const UseContext = (props) => {
-    return (
-        <div className="UseContext">
-            <PageTitle
-                title="Hook UseContext"
-                subtitle="Aceita um objeto de contexto e retorna o valor atual do contexto!"
-            />
-        </div>
-    )
-}
+  const context = useContext(DataContext);
 
-export default UseContext
+  return (
+    <div className="UseContext">
+      <PageTitle
+        title="Hook UseContext"
+        subtitle="Aceita um objeto de contexto e retorna o valor atual do contexto!"
+      />
+
+      <div className="center">
+        <span className="text">{context.text}</span>
+        <span className="text">{context.number}</span>
+      </div>
+    </div>
+  );
+};
+
+export default UseContext;

@@ -5,7 +5,7 @@ const initialState = {
   text: "Context API + Hooks",
 };
 
-const AppContext = React.createContext(initialState);
+export const AppContext = React.createContext(initialState);
 
 const Store = (props) => {
   const [state, setState] = useState(initialState);

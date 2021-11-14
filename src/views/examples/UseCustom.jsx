@@ -35,7 +35,7 @@ const UseCustom = (props) => {
 
       <SectionTitle title="Exercicio 2" />
       <div className="center">
-        <ul>{response.data ? showStates(response.data) : ""}</ul>
+        <ul>{!response.loading ? showStates(response.data) : <h2>Loading...</h2>}</ul>
 
       </div>
     </div>
